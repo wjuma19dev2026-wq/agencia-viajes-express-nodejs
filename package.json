@@ -5,15 +5,20 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon app.js"
+    "server": "nodemon app.js -e js,json,pug,css",
+    "bs": "browser-sync start --config bs-config.js",
+    "dev": "concurrently \"npm run server\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.3.0"
+    "express": "^5.3.0",
+    "pug": "^3.0.4"
   },
   "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "concurrently": "^10.0.6",
     "nodemon": "^3.1.14"
   }
 }
