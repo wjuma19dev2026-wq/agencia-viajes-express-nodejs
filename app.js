@@ -12,6 +12,14 @@ const port = process.env.PORT || 3000
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
+/** Locals */
+app.use((req, res, next) => {
+  const year = new Date().getFullYear()
+  res.locals.actualYear = year
+  res.locals.nombreSitio = 'Agencia de viajes'
+  next()
+})
+
 /** Definir la carpeta publica */
 app.use('/public', express.static(join(__dirname, 'public')))
 
