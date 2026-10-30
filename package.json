@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "server": "nodemon app.js -e js,json,pug,css",
-    "bs": "browser-sync start --config bs-config.js",
-    "dev": "concurrently \"npm run server\""
+    "bs": "browser-sync start --config bs-config.cjs",
+    "dev": "concurrently \"npm run server\" \"npm run bs\""
   },
   "keywords": [],
   "author": "",
