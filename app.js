@@ -46,7 +46,7 @@ try {
   await db.sequelize.authenticate()
 
   const dbName = db.sequelize.getDatabaseName()
-  const dbVersion = await db.sequelize.databaseVersion()
+  // const dbVersion = await db.sequelize.databaseVersion()
   const dbDialect = await db.sequelize.getDialect()
 
   console.log(`Conectado a la BD: ${dbName}, Dialect: ${dbDialect}`)

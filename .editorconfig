@@ -1,0 +1,34 @@
+# EditorConfig: https://editorconfig.org
+# Refleja la configuración de Prettier del proyecto (.prettierrc).
+# EditorConfig solo controla formato básico (espacios, saltos de línea, charset);
+# comillas, punto y coma, etc. los resuelve Prettier.
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+# JavaScript, JSON, CSS, Pug y vistas: 2 espacios (tabWidth: 2, printWidth: 100)
+[*.{js,mjs,cjs,jsx,ts,tsx,json,jsonc,css,scss,sass,less,pug}]
+indent_size = 2
+
+# Markdown: los espacios finales sirven para saltos de línea
+[*.{md,markdown}]
+trim_trailing_whitespace = false
+
+# YAML
+[*.{yml,yaml}]
+indent_size = 2
+
+# Archivos que requieren tabs
+[Makefile]
+indent_style = tab
+
+[*.{bat,cmd}]
+end_of_line = crlf
