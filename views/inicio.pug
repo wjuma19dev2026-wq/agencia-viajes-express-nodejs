@@ -22,8 +22,13 @@ block contenido
     .viajes.mt-5
       h3.text-center Viajes
       .row.mt-3
-        each viaje in viajes
-          +Viaje(viaje)
+        if  viajes.length === 0
+          .col-12.text-center
+            .alert.alert-warning
+              | No existen registros de viajes.
+        else
+          each viaje in viajes
+            +Viaje(viaje)
 
     //- Descuento
     .mt-5
@@ -42,6 +47,11 @@ block contenido
     .row.my-5
       .col-md-12
         h3.text-center Testimoniales
+        .row.mt-3
+          if  testimoniales.length === 0
+            .col-12.text-center
+              .alert.alert-warning
+                | No existen registros de testimoniales.
           .row.mt-3.justify-content-center
             each testimonial in testimoniales
               +Testimonial(testimonial)
