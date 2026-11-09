@@ -1,7 +1,37 @@
-extends layout/AppLayout.pug
+extends layout/AppLayout
+include ./mixins/testimonial
+
 block contenido
 
-  p testimoniales
+  main
+    h1.text-center.mt-5 #{pagina}
+
+    blockquote.text-center
+      .row.testimoniales
+        each testimonial in testimoniales
+          +Testimonial(testimonial)
+
+
+    .row.my-5
+      .col-12
+        h3.text-center Agrega un testimonial
+      if errores
+        each error in errores
+          .col-md-7.mx-auto
+            .alert.alert-danger
+              | #{error.msg}
+      .col-md-8.mx-auto.mt-3
+        form(action="/testimoniales" method="POST" class="bg-white")
+          .form-group
+            label(for="nombre") Nombre:
+            input#nombre.form-control(type="text" class="form-control" name="nombre" placeholder="Tu nombre" value=`${nombre ? nombre : ''}`)
+          .form-group
+            label(for="correo") Correo:
+            input#correo.form-control(type="email" name="correo" placeholder="Tu correo" value=`${correo ? correo: ''}`)
+          .form-group
+            label(for="mensaje") Mensaje:
+            textarea#mensaje.form-control(name="mensaje" rows="5" placeholder="Escribe tu mensaje")= mensaje ? mensaje: ''
+          button.btn.btn-primary.btn-block(type="submit") Enviar Testimonial
 
 
 

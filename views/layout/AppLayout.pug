@@ -11,13 +11,15 @@ html(lang="es")
     link(href='https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Staatliches&display=swap' rel='stylesheet')
 
     title #{nombreSitio} | #{pagina}
-  body
+  body(class= clase)
     include header
+
+    block slider
 
     .container
       block contenido
 
     include footer
 
-    // Bootstrap 5 JS Bundle
+    //- Bootstrap 5 JS Bundle
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js")

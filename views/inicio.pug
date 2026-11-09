@@ -1,10 +1,54 @@
-extends layout/AppLayout.pug
+extends ./layout/AppLayout
+include ./mixins/viaje
+include ./mixins/testimonial
+
+block slider
+  .slider
+    h1 Rio de Janeiro
+    em aventura
+
 block contenido
 
-  p inicio
+  main.mt-5
+    h3.text-center Sobre nosotros
+    .row.mt-3
+      .col-md-6
+        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda maxime sequi est molestiae, iusto dolores repellat dignissimos totam tempora ab molestias corrupti quidem nostrum omnis et excepturi consectetur iure fugit?
+        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur quis inventore culpa excepturi quaerat consectetur natus rem dolor. Iusto commodi impedit enim minus pariatur porro maxime distinctio itaque quas cumque!
+      .col-md-6
+        img(src="/public/img/inicio_nosotros.jpg" alt="imagen de inicio nosotros" class="img-fluid")
+
+    //- Viajes
+    .viajes.mt-5
+      h3.text-center Viajes
+      .row.mt-3
+        each viaje in viajes
+          +Viaje(viaje)
+
+    //- Descuento
+    .mt-5
+      h3.text-center Descuento
+      .descuento
+        .row.mt-3
+          .col-md-6
+            .contenido
+              h3 5% de Descuento
+              p.titulo Viaje a Canada
+              p.fecha 20 de Marzo de 2022 - 28 de Marzo de 2022
+              p.precio $2,500 USD
+
+
+    //- Testimoniales
+    .row.my-5
+      .col-md-12
+        h3.text-center Testimoniales
+          .row.mt-3.justify-content-center
+            each testimonial in testimoniales
+              +Testimonial(testimonial)
 
 
 
 
-  
+
+
 
