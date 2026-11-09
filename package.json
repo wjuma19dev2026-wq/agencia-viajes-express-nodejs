@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "node app.js",
     "server": "nodemon app.js -e js,json,pug,css",
     "bs": "browser-sync start --config bs-config.cjs",
     "dev": "concurrently \"npm run server\" \"npm run bs\""
